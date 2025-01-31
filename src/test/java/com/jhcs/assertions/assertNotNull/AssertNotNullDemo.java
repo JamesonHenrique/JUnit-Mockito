@@ -1,43 +1,43 @@
-package com.jhcs.assertions.assertNull;
+package com.jhcs.assertions.assertNotNull;
 
 import com.jhcs.bookstore.model.Book;
 import com.jhcs.bookstore.service.BookService;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class AssertNullDemo {
+
+public class AssertNotNullDemo {
     @Test
-    public void assertNullWithNoMessage() {
+    public void assertNotNullWithNoMessage() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
         bookService.addBook(headFirstJavaBook);
         bookService.addBook(headFirstDesignBook);
-        Book book = bookService.getBookById("3");
-        assertNull(book);
+        Book book = bookService.getBookById("1");
+        assertNotNull(book);
+    }
+    @Test
+    public void assertNotNullWithMessage() {
+        BookService bookService = new BookService();
+        Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
+        Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
+        bookService.addBook(headFirstJavaBook);
+        bookService.addBook(headFirstDesignBook);
+        Book book = bookService.getBookById("1");
+        assertNotNull(book, "O livro é nulo");
 
     }
     @Test
-    public void assertNullWithMessage() {
+    public void assertNotNullWithMessageSupplier() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
         bookService.addBook(headFirstJavaBook);
         bookService.addBook(headFirstDesignBook);
-        Book book = bookService.getBookById("3");
-        assertNull(book, "O livro não é nulo");
-
-    }
-    @Test
-    public void assertNullWithMessageSupplier() {
-        BookService bookService = new BookService();
-        Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
-        Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
-        bookService.addBook(headFirstJavaBook);
-        bookService.addBook(headFirstDesignBook);
-        Book book = bookService.getBookById("3");
-        assertNull(book, () -> "O livro não é nulo");
+        Book book = bookService.getBookById("1");
+        assertNotNull(book, () -> "O livro é nulo");
 
     }
 
