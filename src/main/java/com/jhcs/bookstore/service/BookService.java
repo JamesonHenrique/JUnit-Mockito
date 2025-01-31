@@ -13,5 +13,14 @@ public class BookService {
     }
     public List<Book> books() {
         return Collections.unmodifiableList(listOfBooks);
+
+    }
+    public Book getBookById(String bookId) {
+        for (Book book : listOfBooks) {
+            if (bookId.equals(book.getBookId())) {
+                return book;
+            }
+        }
+        return null;
     }
 }
