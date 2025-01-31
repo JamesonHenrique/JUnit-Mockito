@@ -1,34 +1,34 @@
-package com.jhcs.assertions.assertEquals;
+package com.jhcs.assertions.assertNotEquals;
 
 import com.jhcs.bookstore.model.Book;
 import com.jhcs.bookstore.service.BookService;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class AssertEqualsDemo {
+public class AssertNotEqualsDemo {
     @Test
-    public void assertEqualsWithNoMessage() {
+    public void assertNotEqualsWithNoMessage() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
         bookService.addBook(headFirstJavaBook); bookService.addBook(headFirstDesignBook);
-        Book book = bookService.getBookById("1"); assertEquals("Head First Java", book.getTitle());
+        Book book = bookService.getBookById("1"); assertNotEquals("Head First Design", book.getTitle());
     }
     @Test
-    public void assertEqualsWithMessage() {
+    public void assertNotEqualsWithMessage() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
         bookService.addBook(headFirstJavaBook); bookService.addBook(headFirstDesignBook);
-        Book book = bookService.getBookById("1"); assertEquals("Head First Java", book.getTitle(), "O livro não corresponde ao valor esperado");
+        Book book = bookService.getBookById("1"); assertNotEquals("Head First Design", book.getTitle(), "O livro corresponde ao valor esperado");
     }
     @Test
-    public void assertEqualsWithMessageSupplier() {
+    public void assertNotEqualsWithMessageSupplier() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
         bookService.addBook(headFirstJavaBook); bookService.addBook(headFirstDesignBook);
-        Book book = bookService.getBookById("1"); assertEquals("Head First Java", book.getTitle(),() -> "O livro não corresponde ao valor esperado");
+        Book book = bookService.getBookById("1"); assertNotEquals("Head First Design", book.getTitle(),() -> "O livro corresponde ao valor esperado");
     }
 }
