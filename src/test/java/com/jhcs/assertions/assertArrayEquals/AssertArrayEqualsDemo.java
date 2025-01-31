@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class AssertArraysEqualsDemo {
+public class AssertArrayEqualsDemo {
     @Test
-    public void assertArraysWithNoMessage() {
+    public void assertArrayEqualsWithNoMessage() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
@@ -19,7 +19,7 @@ public class AssertArraysEqualsDemo {
         assertArrayEquals(new String[]{"1", "2", "3"},book);
     }
     @Test
-    public void assertArraysEqualsWithMessage() {
+    public void assertArrayEqualsWithMessage() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
@@ -27,10 +27,10 @@ public class AssertArraysEqualsDemo {
 
         bookService.addBook(headFirstJavaBook); bookService.addBook(headFirstDesignBook); bookService.addBook(headFirstJavascriptBook);
         String[] book = bookService.getBookIdsByPublisher("O'Reilly");
-        assertArrayEquals(new String[]{"1", "2", "3"},book, "Os livros não correspondem ao valor esperado");
+        assertArrayEquals(new String[]{"1", "2", "3"},book, "Os ids dos livros não correspondem ao valor esperado");
     }
     @Test
-    public void assertArraysEqualsWithMessageSupplier() {
+    public void assertArrayEqualsWithMessageSupplier() {
         BookService bookService = new BookService();
         Book headFirstJavaBook = new Book("1", "Head First Java", "O'Reilly");
         Book headFirstDesignBook = new Book("2", "Head First Design", "O'Reilly");
@@ -38,6 +38,6 @@ public class AssertArraysEqualsDemo {
 
         bookService.addBook(headFirstJavaBook); bookService.addBook(headFirstDesignBook); bookService.addBook(headFirstJavascriptBook);
         String[] book = bookService.getBookIdsByPublisher("O'Reilly");
-        assertArrayEquals(new String[]{"1", "2", "3"},book, () -> "Os livros não correspondem ao valor esperado");
+        assertArrayEquals(new String[]{"1", "2", "3"},book, () -> "Os ids dos livros não correspondem ao valor esperado");
     }
 }
