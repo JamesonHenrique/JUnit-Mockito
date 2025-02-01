@@ -1,4 +1,4 @@
-# Projeto de Estudos Aprofundados de Testes Unitários com JUnit
+# Projeto de Estudos Aprofundados de Testes Unitários com JUnit 5
 
 ## Descrição
 Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando o framework JUnit. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
