@@ -1,5 +1,6 @@
 package com.jhcs.bookstore.service;
 
+import com.jhcs.bookstore.exception.BookNotFoundException;
 import com.jhcs.bookstore.model.Book;
 
 import java.util.ArrayList;
@@ -33,14 +34,20 @@ public class BookService {
             }
         } return bookIds.toArray(new String[bookIds.size()]);
     }
+
     public List<String> getBookTitlesByPublisher(String publisher) {
-        List<String> bookTitles = new ArrayList<>();
-        for (Book book : listOfBooks) {
+        List<String> bookTitles = new ArrayList<>(); for (Book book : listOfBooks) {
             if (publisher.equals(book.getPublisher())) {
                 bookTitles.add(book.getTitle());
             }
-        }
-        return bookTitles;
+        } return bookTitles;
     }
-    
+
+    public Book getBookByTitle(String bookTitle) {
+        for (Book book : listOfBooks) {
+            if (bookTitle.equals(book.getTitle())) {
+                return book;
+            }
+        } throw new BookNotFoundException("Livro não encontrado");
+    }
 }
