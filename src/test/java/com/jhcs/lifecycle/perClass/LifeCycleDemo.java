@@ -1,12 +1,12 @@
-package com.jhcs.lifecycle.perMethod;
+package com.jhcs.lifecycle.perClass;
 
 import org.junit.jupiter.api.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class LifeCycleDemo {
     @BeforeAll
-    public static void beforeAll() {
-        System.out.println("@BeforeAll executado");
+    public void beforeAll() {
+        System.out.println("@beforeAll executado");
     }
 
     public LifeCycleDemo() {
@@ -34,7 +34,7 @@ public class LifeCycleDemo {
     }
 
     @AfterAll
-    public static void afterAll() {
+    public void afterAll() {
         System.out.println("@afterAll executado");
     }
 }
