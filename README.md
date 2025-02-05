@@ -1,8 +1,8 @@
-# Projeto de Estudos Aprofundados de Testes Unitários com JUnit 5
+# Projeto de Estudos Aprofundados de Testes Unitários com JUnit 5 e Mockito
 
 ## Descrição
 Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando o framework JUnit. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
-# Projeto de Estudos Aprofundados de Testes Unitários com JUnit
+# Projeto de Estudos Aprofundados de Testes Unitários com JUnit e Mockito
 
 ## Descrição
 Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando o framework JUnit. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
@@ -21,6 +21,7 @@ O projeto está organizado da seguinte forma:
 ## Dependências
 As dependências do projeto estão definidas no arquivo `pom.xml`. As principais dependências são:
 - `junit-jupiter`: Para execução dos testes unitários.
+- `mockito-junit-jupiter`: Para execução dos testes unitários com Mocks.
 - `maven-surefire-plugin`: Para integração dos testes com o Maven.
 
 ## Estrutura de Classes
