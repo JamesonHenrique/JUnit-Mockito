@@ -1,4 +1,4 @@
-package com.jhcs.mockito.testDoubles.spy;
+package com.jhcs.mockito.testDoubles.mock;
 
 public class BookService {
     private BookRepository bookRepository;

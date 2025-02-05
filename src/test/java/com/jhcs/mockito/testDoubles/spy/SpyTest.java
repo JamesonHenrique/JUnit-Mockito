@@ -17,10 +17,7 @@ public class SpyTest {
         Book book2 =   new Book("2", "The First Spring", 450, LocalDate.now());
         bookService.addBook(book1);
         bookService.addBook(book2);
-        bookService.addBook(book1);
-        assertEquals(0, bookRepositorySpy.timesCalled());
 
-        bookService.addBook(book2);
         assertEquals(1, bookRepositorySpy.timesCalled());
 
     }
