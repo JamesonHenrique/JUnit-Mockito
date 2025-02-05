@@ -2,11 +2,16 @@
 
 ## Descrição
 Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando o framework JUnit. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
+# Projeto de Estudos Aprofundados de Testes Unitários com JUnit
+
+## Descrição
+Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando o framework JUnit. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
 
 ## Estrutura do Projeto
 O projeto está organizado da seguinte forma:
-- `src/main/java/com/jhcs`: Contém o código fonte principal da aplicação.
-- `src/test/java/com/jhcs`: Contém os testes unitários da aplicação.
+- `src/main/java`: Contém o código fonte principal da aplicação.
+- `src/test/java`: Contém os testes unitários da aplicação.
+- `src/test/resources`: Contém arquivos de recursos para testes.
 
 ## Tecnologias Utilizadas
 - **Java**: Linguagem de programação utilizada.
@@ -23,6 +28,9 @@ As dependências do projeto estão definidas no arquivo `pom.xml`. As principais
 - `com.jhcs.bookstore.exception.BookNotFoundException`: Exceção personalizada para quando um livro não é encontrado.
 - `com.jhcs.bookstore.model.Book`: Classe que representa um livro.
 - `com.jhcs.bookstore.service.BookService`: Classe de serviço que gerencia os livros.
+- `com.jhcs.example.Calculator`: Classe de exemplo para cálculos.
+- `com.jhcs.example.StringHelper`: Classe de exemplo para manipulação de strings.
+
 
 ### Testes
 - `com.jhcs.assertions`: Contém classes de demonstração de diferentes tipos de asserções do JUnit.
@@ -31,6 +39,11 @@ As dependências do projeto estão definidas no arquivo `pom.xml`. As principais
 - `com.jhcs.exception`: Contém testes que verificam o lançamento de exceções.
 - `com.jhcs.test.annotation`: Contém testes com a anotação `@Test`.
 - `com.jhcs.assumptions`: Contém testes que utilizam suposições (`assumptions`).
+- `com.jhcs.conditional`: Contém testes condicionais baseados no sistema operacional e JRE.
+- `com.jhcs.lifecycle`: Contém testes que demonstram o ciclo de vida dos testes.
+- `com.jhcs.parameterizedTest`: Contém testes parametrizados.
+- `com.jhcs.repeatedTest`: Contém testes repetidos.
+- `com.jhcs.dynamicTest`: Contém testes dinâmicos.
 
 ## Executando os Testes
 Para executar os testes, utilize o seguinte comando Maven:
