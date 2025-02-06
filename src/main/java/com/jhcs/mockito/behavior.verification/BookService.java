@@ -28,6 +28,9 @@ public class BookService {
             return;
         }
         Book book = bookRepository.findBookByBookId(bookId);
+        //if(book.getPrice() == updatedPrice) {
+        //    return;
+        //}
         book.setPrice(updatedPrice);
         bookRepository.save(book);
     }
