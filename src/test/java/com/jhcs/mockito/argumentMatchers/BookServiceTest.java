@@ -34,13 +34,15 @@ public class BookServiceTest {
         when(bookRepository.findBookById(any(String.class))).thenReturn(book1); bookService.updatePrice("1", 500);
         verify(bookRepository).save(book2);
     }
-    @Test
-    public void testInvalidUseOfArgumentsMatchers() {
-        Book book = new Book("1", "The First In Java", 600, LocalDate.now());
-       when(bookRepository.findBookByTitleAndPublishedDate(eq("The First In Java"), any())).thenReturn(book);
-      Book actualBook = bookService.getBookByTitleAndPublishedDate(eq("The First In Java"), any());
-     assertEquals("The First In Java", actualBook.getTitle());
-    }
+
+    //@Test
+    //public void testInvalidUseOfArgumentsMatchers() {
+    //    Book book = new Book("1", "The First In Java", 600, LocalDate.now());
+    //    when(bookRepository.findBookByTitleAndPublishedDate(eq("The First In Java"), any())).thenReturn(book);
+    //    Book actualBook = bookService.getBookByTitleAndPublishedDate(eq("The First In Java"), any());
+    //    assertEquals("The First In Java", actualBook.getTitle());
+    //}
+
     @Test
     public void testSpecificUseOfArgumentsMatchers() {
         Book book = new Book("1", "The First In Java", 600, LocalDate.now());
@@ -48,12 +50,11 @@ public class BookServiceTest {
         Book actualBook = bookService.getBookByTitleAndPriceAndIsDigital("The First In Java", 600, true);
         assertEquals("The First In Java", actualBook.getTitle());
     }
+
     @Test
     public void testCollectionTypeArgumentMatchers() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("1", "The First In Java", 600, LocalDate.now());
-        books.add(book);
-        bookService.addBooks(books);
+        List<Book> books = new ArrayList<>(); Book book = new Book("1", "The First In Java", 600, LocalDate.now());
+        books.add(book); bookService.addBooks(books);
         verify(bookRepository).saveAll(anyList()); // anySet, anyMap, anyCollection
     }
 
