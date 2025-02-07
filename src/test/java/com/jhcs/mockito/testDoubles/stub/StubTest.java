@@ -25,7 +25,7 @@ public class StubTest {
 
     }
     @Test
-    public void testDummyWithMockito() {
+    public void testStubWithMockito() {
         BookRepository bookRepository = mock(BookRepository.class);
         BookService bookService = new BookService(bookRepository);
         Book book1 =  new Book("1", "Head First Java", 500, LocalDate.now());
