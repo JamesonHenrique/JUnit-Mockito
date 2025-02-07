@@ -1,11 +1,7 @@
-# Projeto de Estudos Aprofundados de Testes Unitários com JUnit 5 e Mockito
-
-## Descrição
-Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando o framework JUnit. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
 # Projeto de Estudos Aprofundados de Testes Unitários com JUnit e Mockito
 
 ## Descrição
-Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando o framework JUnit. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
+Este projeto tem como objetivo aprofundar os conhecimentos em testes unitários utilizando os frameworks JUnit e Mockito. O projeto consiste em uma aplicação simples de gerenciamento de livros, onde são aplicados diversos tipos de testes unitários para garantir a qualidade do código.
 
 ## Estrutura do Projeto
 O projeto está organizado da seguinte forma:
@@ -17,6 +13,7 @@ O projeto está organizado da seguinte forma:
 - **Java**: Linguagem de programação utilizada.
 - **Maven**: Ferramenta de automação de compilação e gerenciamento de dependências.
 - **JUnit 5**: Framework de testes unitários.
+- **Mockito**: Framework para criação de mocks em testes unitários.
 
 ## Dependências
 As dependências do projeto estão definidas no arquivo `pom.xml`. As principais dependências são:
@@ -32,7 +29,6 @@ As dependências do projeto estão definidas no arquivo `pom.xml`. As principais
 - `com.jhcs.example.Calculator`: Classe de exemplo para cálculos.
 - `com.jhcs.example.StringHelper`: Classe de exemplo para manipulação de strings.
 
-
 ### Testes
 - `com.jhcs.assertions`: Contém classes de demonstração de diferentes tipos de asserções do JUnit.
 - `com.jhcs.disabled`: Contém testes desabilitados.
@@ -45,6 +41,20 @@ As dependências do projeto estão definidas no arquivo `pom.xml`. As principais
 - `com.jhcs.parameterizedTest`: Contém testes parametrizados.
 - `com.jhcs.repeatedTest`: Contém testes repetidos.
 - `com.jhcs.dynamicTest`: Contém testes dinâmicos.
+- `com.jhcs.mockito.annotations.support`: Contém testes utilizando anotações do Mockito.
+- `com.jhcs.mockito.argumentCaptor`: Contém testes utilizando ArgumentCaptor do Mockito.
+- `com.jhcs.mockito.argumentMatchers`: Contém testes utilizando ArgumentMatchers do Mockito.
+- `com.jhcs.mockito.bdd.behaviorVerification`: Contém testes utilizando BDD com Mockito.
+- `com.jhcs.mockito.bdd.stubbing`: Contém testes utilizando stubbing com Mockito.
+- `com.jhcs.mockito.behavior.verification`: Contém testes de verificação de comportamento com Mockito.
+- `com.jhcs.mockito.exceptionHandling`: Contém testes de tratamento de exceções com Mockito.
+- `com.jhcs.mockito.spies`: Contém testes utilizando spies do Mockito.
+- `com.jhcs.mockito.stubbing`: Contém testes utilizando stubbing do Mockito.
+- `com.jhcs.mockito.testDoubles.dummy`: Contém testes utilizando dummies do Mockito.
+- `com.jhcs.mockito.testDoubles.fake`: Contém testes utilizando fakes do Mockito.
+- `com.jhcs.mockito.testDoubles.mock`: Contém testes utilizando mocks do Mockito.
+- `com.jhcs.mockito.testDoubles.spy`: Contém testes utilizando spies do Mockito.
+- `com.jhcs.mockito.testDoubles.stub`: Contém testes utilizando stubs do Mockito.
 
 ## Executando os Testes
 Para executar os testes, utilize o seguinte comando Maven:
@@ -75,7 +85,16 @@ public void assertThrowsWithNoMessage() {
     });
 }
 ```
-
+### Teste de Argumentos de Tipo String
+```java
+    @Test
+    public void testStringTypeArgumentMatchers() {
+        Book book = new Book("1", "The First In Java", 600, LocalDate.now());
+        when(bookRepository.findBookByTitleAndPriceAndIsDigital(contains("First"), anyInt(), anyBoolean())).thenReturn(book);
+        Book actualBook = bookService.getBookByTitleAndPriceAndIsDigital("The First In Spring", 600, true);
+        assertEquals("The First In Java", actualBook.getTitle());
+    }
+```
 ## Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
 
@@ -84,5 +103,3 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para 
 
 ## Autor
 Jameson Henrique
-
----
